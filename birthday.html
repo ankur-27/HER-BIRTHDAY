@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      color: white;
+      
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      
+    }
+
+    .heart {
+      width: 150px;
+      height: 150px;
+      background: #ff6b6b;
+      clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
+      animation: heartbeat 1s infinite;
+      margin: 0 auto 20px auto;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .balloons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      background: radial-gradient(circle, #ff9a9e, #fad0c4);
+      border-radius: 50% 50% 50% 50% / 60% 60% 100% 100%;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    .balloon:nth-child(odd) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .cake {
+      position: relative;
+      margin: 0 auto 20px;
+      width: 150px;
+      height: 150px;
+    }
+
+    .cake .base {
+      width: 150px;
+      height: 100px;
+      background: #ff6b6b;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .cake .candle {
+      width: 10px;
+      height: 40px;
+      background: #ffd700;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .cake .flame {
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(circle, yellow, red);
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.8s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
+
+    .frame {
+      width: 300px;
+      height: 300px;
+      border: 5px solid white;
+      border-radius: 50px;
+      overflow: hidden;
+      margin: 0 auto;
+      
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff6b6b;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff4757;
+    }
+    /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      color: white;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .slider {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border: 5px solid rgb(12, 11, 11);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .navigation button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border: radius 30%;
+      transition: background 0.3s ease;
+    }
+
+    .navigation button:hover {
+      background: rgba(163, 12, 12, 0.8);
+    }
+    .page button {
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .page button:hover {
+      background-color: #ff6b6b;
+      transform: scale(1.05);
+    }
+    #background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  </style>
+</head>
+<body>
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <div class="heart"></div>
+    <h1>Happy Birthday, Love!</h1>
+    <h2>To my soulmate, happy birthday! You make every day brighter just by being in it. 💖🌟</h2>
+    <button class="btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <div class="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+    <h1>May Your Day Be Filled With Joy!</h1>
+    <h2>Lets celebrate this beautiful moment together!</h2>
+    <button class="btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <div class="cake">
+      <div class="base"></div>
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+    </div>
+    <h1>A Sweet Treat for a Sweetheart!</h1>
+    <h2>Let this cake light up your day!</h2>
+    <button class="btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <!-- Page 4 -->
+  
+  <!-- Page 4 -->
+  <div class="page" id="page4">
+    <h1>Happiest Birthday To My beautiful Lady!</h1>
+    <div class="slider">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="SHE.JPG" alt="Photo 1">
+        </div>
+        <div class="slide">
+          <img src="SHE2.1JPG.jpg" alt="Photo 2">
+        </div>
+        <div class="slide">
+          <img src="SHE&ME.JPG" alt="Photo 3">
+        </div>
+        <div class="slide">
+          <img src="SHE4.JPG" alt="Photo 4">
+        </div>
+        <div class="slide">
+          <img src="SHE5.1.JPG" alt="Photo 5">
+        </div>
+      </div>
+      <div class="navigation">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+    </div>
+    <button onclick="restart()">Restart</button>
+  </div>
+  <body>
+    <!-- Background Video -->
+    <video autoplay loop muted id="background-video">
+      <source src="videomp4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+   
+  <!-- Audio element with autoplay attribute -->
+  <audio id="autoplay-audio" autoplay loop>
+    <source src="song.bg.mp3.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+  <script>
+    let currentPage = 1;
+
+    function nextPage() {
+  document.getElementById(`page${currentPage}`).classList.remove('active');
+  currentPage++;
+  document.getElementById(`page${currentPage}`).classList.add('active');
+}
+
+function restart() {
+  document.getElementById(`page${currentPage}`).classList.remove('active');
+  currentPage = 1;
+  document.getElementById(`page${currentPage}`).classList.add('active');
+}
+// script.js
+
+// Get the audio element
+const audio = document.getElementById('autoplay-audio');
+
+// Add event listener to audio element to handle errors
+audio.addEventListener('error', () => {
+    console.error('Error playing audio');
+}); 
+function nextPage() {
+      document.getElementById(`page${currentPage}`).classList.remove('active');
+      currentPage++;
+      document.getElementById(`page${currentPage}`).classList.add('active');
+    }
+
+    function restart() {
+      document.getElementById(`page${currentPage}`).classList.remove('active');
+      currentPage = 1;
+      document.getElementById(`page${currentPage}`).classList.add('active');
+    }
+
+    const slides = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    let currentIndex = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    
+  </script>
+</body>
+</html>
